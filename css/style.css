@@ -58,11 +58,38 @@ footer { background-color: var(--primary-green); color: var(--white); text-align
 .footer-logos img { height: 45px; object-fit: contain; background: white; padding: 5px; border-radius: 4px; } /* Ajuste para logotipos obligatorios */
 
 /* Botones Flotantes */
-.floating-container { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 900;}
+.floating-container { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; /* Un poco más de espacio entre los botones redondos */
+    z-index: 900;
+}
 /* Ajuste de color a #0b665b para cumplir RNF-12 (Ratio contraste WCAG AA 4.5:1) */
-.float-btn { color: white; padding: 15px; border-radius: 50px; text-decoration: none; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.2); font-weight: bold; }
-.float-wa { background-color: #0b665b; } 
+.float-btn { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    width: 60px; /* Ancho fijo para hacer un círculo perfecto */
+    height: 60px; /* Alto fijo para hacer un círculo perfecto */
+    border-radius: 50%; /* Redondea completamente el botón */
+    text-decoration: none; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra más suave y moderna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones fluidas */
+}
+.float-btn:hover {
+    transform: translateY(-5px); /* Efecto de elevación al hacer hover */
+    box-shadow: 0 6px 14px rgba(0,0,0,0.4);
+}
+.float-wa { background-color: #0b665b; }
 .float-mail { background-color: var(--secondary-green); }
+.float-icon {
+    width: 32px; /* Tamaño del icono adaptado al botón de 60px */
+    height: 32px;
+    object-fit: contain; /* Evita que la imagen se deforme */
+}
 
 /* Responsivo */
 @media (max-width: 768px) {
