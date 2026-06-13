@@ -55,10 +55,17 @@
 					<select id="servicio" name="servicio" required>
 						<option value="" disabled selected>Seleccione una opción</option>
 						<option value="Estrategias">Estrategias</option>
-						<option value="Investigacion">Investigación</option>
-						<option value="Integracion">Integración</option>
+						<option value="Investigación">Investigación</option>
+						<option value="Integración">Integración</option>
 						<option value="Consulta General">Consulta General</option>
 					</select>
+				</div>
+
+				<div class="form-group">
+					<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 0.5rem; margin-top: 0.5rem;">
+						<input type="checkbox" id="privacidad" name="privacidad" required style="width: auto; margin-top: 0.25rem;" />
+						<label for="privacidad" style="font-size: 0.9rem; font-weight: normal;">Acepto la política de privacidad y el tratamiento de mis datos personales según la Ley 19.628. *</label>
+					</div>
 				</div>
 
 				<button type="submit" class="btn" style="margin-top: 1rem">Enviar Solicitud</button>
@@ -111,8 +118,11 @@
 					let hasError = false;
 					let errorText = "";
 
-					// Validaciones por requerimiento RF-01, RF-02 y RNF-11
-					if (!input.value.trim()) {
+					// Validaciones por requerimiento RF-01, RF-02, RNF-11 y R6
+					if (input.type === "checkbox" && !input.checked) {
+						hasError = true;
+						errorText = "Debe aceptar la política de privacidad";
+					} else if (input.type !== "checkbox" && !input.value.trim()) {
 						hasError = true;
 						errorText = "Este campo es obligatorio";
 					} else if (input.type === "email") {
@@ -122,18 +132,26 @@
 							hasError = true;
 							errorText = 'Debe incluir un "@" y un dominio válido (ej. usuario@dominio.cl)';
 						}
-					} else if (input.validity.patternMismatch) {
+					} else if (input.validity && input.validity.patternMismatch) {
 						hasError = true;
 						errorText = input.title || "Formato de datos no permitido";
 					}
 
 					if (hasError) {
 						isValid = false;
-						input.classList.add("error-border");
+						if(input.type !== "checkbox"){
+							input.classList.add("error-border");
+						}
 						const errorSpan = document.createElement("span");
 						errorSpan.className = "error-msg";
 						errorSpan.innerText = errorText;
-						input.parentNode.appendChild(errorSpan);
+						
+						const formGroup = input.closest('.form-group');
+						if (formGroup) {
+							formGroup.appendChild(errorSpan);
+						} else {
+							input.parentNode.appendChild(errorSpan);
+						}
 					}
 				});
 
