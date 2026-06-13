@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casos de Éxito | Alfa Green</title>
     <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ALFAGREEN26'); // Registra pageview
+    </script>
 </head>
 <body>
     <header>
@@ -25,7 +32,7 @@
         
         <div class="grid-container">
             <div class="card" onclick="openCasoModal('Planta Solar Industrial B2B')" style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                <div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #555; font-weight: bold;">
+                <div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #333; font-weight: bold;">
                     Ver Proyecto
                 </div>
                 <h3>Planta Solar Industrial B2B</h3>
@@ -37,13 +44,17 @@
 
     <div id="casoModal" class="caso-modal">
         <div class="caso-modal-content">
-            <button class="close-caso-modal" onclick="closeCasoModal()">Cerrar</button>
-            <h2 id="modalTitle">Título del Proyecto</h2>
+            <button class="close-caso-modal" aria-label="Cerrar modal" onclick="closeCasoModal()">X</button>
+            <h2 id="modalTitle" style="padding-right: 30px;">Título del Proyecto</h2>
             
-            <div class="gallery-container">
-                <div class="gallery-item">[Imagen 1 Optimizado - JPG Max 500kb]</div>
-                <div class="gallery-item">[Imagen 2 Optimizado - WebP Max 500kb]</div>
-                <div class="gallery-item">[Imagen 3 Optimizado - WebP Max 500kb]</div>
+            <div class="gallery-wrapper">
+                <button class="gallery-btn prev" aria-label="Anterior" onclick="scrollGallery(-1)">&lt;</button>
+                <div class="gallery-container" id="casoGallery">
+                    <div class="gallery-item">[Imagen 1 - Optimizada JPG Max 500kb]</div>
+                    <div class="gallery-item">[Imagen 2 - Optimizada WebP Max 500kb]</div>
+                    <div class="gallery-item">[Imagen 3 - Optimizada WebP Max 500kb]</div>
+                </div>
+                <button class="gallery-btn next" aria-label="Siguiente" onclick="scrollGallery(1)">&gt;</button>
             </div>
 
             <p style="margin-bottom: 10px;"><strong>Descripción Técnica:</strong> Instalación de 500kWp en techo industrial, con optimización estructural y cableado de alta eficiencia.</p>
@@ -81,6 +92,12 @@
         }
         function closeCasoModal() {
             document.getElementById('casoModal').style.display = 'none';
+        }
+        // Navegación de flechas HU-04
+        function scrollGallery(direction) {
+            const gallery = document.getElementById('casoGallery');
+            const scrollAmount = 310 * direction; 
+            gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         }
     </script>
 </body>

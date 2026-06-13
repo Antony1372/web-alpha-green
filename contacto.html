@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Alfa Green</title>
     <link rel="stylesheet" href="css/style.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-ALFAGREEN26'); // Registra pageview
+    </script>
 </head>
 <body>
     <header>
@@ -26,17 +33,17 @@
         <form id="contactForm" novalidate>
             <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
-                <input type="text" id="nombre" name="nombre" required>
+                <input type="text" id="nombre" name="nombre" required maxlength="100" pattern="[A-Za-zÀ-ÿ\s]+" title="Solo se permiten letras y espacios en el nombre">
             </div>
             
             <div class="form-group">
                 <label for="empresa">Nombre de la empresa *</label>
-                <input type="text" id="empresa" name="empresa" required>
+                <input type="text" id="empresa" name="empresa" required maxlength="150">
             </div>
             
             <div class="form-group">
                 <label for="correo">Correo electrónico *</label>
-                <input type="email" id="correo" name="correo" placeholder="usuario@dominio.cl" required>
+                <input type="email" id="correo" name="correo" placeholder="usuario@dominio.cl" required maxlength="100">
             </div>
             
             <div class="form-group">
@@ -100,7 +107,7 @@
                 let hasError = false;
                 let errorText = '';
 
-                // Validaciones por requerimiento RF-01 y RF-02
+                // Validaciones por requerimiento RF-01, RF-02 y RNF-11
                 if (!input.value.trim()) {
                     hasError = true;
                     errorText = 'Este campo es obligatorio';
@@ -111,6 +118,9 @@
                         hasError = true;
                         errorText = 'Debe incluir un "@" y un dominio válido (ej. usuario@dominio.cl)';
                     }
+                } else if (input.validity.patternMismatch) {
+                    hasError = true;
+                    errorText = input.title || 'Formato de datos no permitido';
                 }
 
                 if (hasError) {
@@ -125,6 +135,10 @@
 
             if (isValid) {
                 modal.style.display = 'flex';
+                // Dispara el tag exigido form_submit para RNF-13
+                if (typeof gtag === 'function') {
+                    gtag('event', 'form_submit');
+                }
             }
         });
 

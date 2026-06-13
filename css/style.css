@@ -1,7 +1,8 @@
 /* css/style.css */
 :root {
-    --primary-green: #0a4d2e; /* Alto contraste */
-    --secondary-green: #14804c;
+    --primary-green: #0a4d2e; 
+    /* RNF-12: Modificado a #0f673a para cumplir el ratio de contraste WCAG AA 4.5:1 sobre fondo blanco */
+    --secondary-green: #0f673a;
     --light-bg: #f4f7f5;
     --text-dark: #1a1a1a;
     --white: #ffffff;
@@ -38,7 +39,7 @@ input, select { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
 
 /* Clases de Validación para HU-01 */
 .error-border { border: 2px solid red !important; }
-.error-msg { color: red; font-size: 0.85rem; margin-top: 0.25rem; display: block; }
+.error-msg { color: red; font-size: 0.85rem; margin-top: 0.25rem; display: block; font-weight: bold; }
 
 /* Estilos de la Ventana Modal para RF-06 */
 .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
@@ -47,15 +48,24 @@ input, select { padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px; }
 
 /* Estilos Modal para Casos de Exito (HU-04) */
 .caso-modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.8); justify-content: center; align-items: center; padding: 1rem;}
-.caso-modal-content { background-color: var(--white); padding: 2rem; border-radius: 8px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; text-align: left; }
-.gallery-container { display: flex; gap: 10px; overflow-x: auto; margin: 1.5rem 0; scroll-snap-type: x mandatory; }
-.gallery-container .gallery-item { min-width: 300px; height: 250px; background: #e0e0e0; display:flex; align-items:center; justify-content:center; border-radius:4px; scroll-snap-align: center;}
-.close-caso-modal { float: right; cursor: pointer; background: #d9534f; color: white; border: none; padding: 8px 12px; border-radius: 4px; font-weight: bold;}
+.caso-modal-content { background-color: var(--white); padding: 2rem; border-radius: 8px; max-width: 800px; width: 100%; max-height: 90vh; overflow-y: auto; text-align: left; position: relative; }
+.close-caso-modal { position: absolute; top: 15px; right: 15px; cursor: pointer; background: #d9534f; color: white; border: none; padding: 8px 12px; border-radius: 4px; font-weight: bold;}
+
+/* Galería con flechas para HU-04 */
+.gallery-wrapper { position: relative; display: flex; align-items: center; margin: 1.5rem 0; }
+.gallery-container { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; flex: 1; padding-bottom: 10px; scroll-behavior: smooth; }
+.gallery-container::-webkit-scrollbar { height: 8px; }
+.gallery-container::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.gallery-container .gallery-item { min-width: 300px; height: 250px; background: #e0e0e0; display:flex; align-items:center; justify-content:center; border-radius:4px; scroll-snap-align: center; font-weight: bold; color: var(--text-dark); text-align: center; padding: 1rem;}
+.gallery-btn { background: var(--secondary-green); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.2rem; font-weight: bold; position: absolute; z-index: 10; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.gallery-btn:hover { background: var(--primary-green); }
+.gallery-btn.prev { left: -15px; }
+.gallery-btn.next { right: -15px; }
 
 /* Footer con logos integrados */
 footer { background-color: var(--primary-green); color: var(--white); text-align: center; padding: 2rem; margin-top: auto; }
 .footer-logos { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; }
-.footer-logos img { height: 45px; object-fit: contain; background: white; padding: 5px; border-radius: 4px; } /* Ajuste para logotipos obligatorios */
+.footer-logos img { height: 45px; object-fit: contain; background: white; padding: 5px; border-radius: 4px; } 
 
 /* Botones Flotantes */
 .floating-container { 
@@ -64,35 +74,36 @@ footer { background-color: var(--primary-green); color: var(--white); text-align
     right: 20px; 
     display: flex; 
     flex-direction: column; 
-    gap: 15px; /* Un poco más de espacio entre los botones redondos */
+    gap: 15px; 
     z-index: 900;
 }
-/* Ajuste de color a #0b665b para cumplir RNF-12 (Ratio contraste WCAG AA 4.5:1) */
 .float-btn { 
     display: flex; 
     justify-content: center; 
     align-items: center;
-    width: 60px; /* Ancho fijo para hacer un círculo perfecto */
-    height: 60px; /* Alto fijo para hacer un círculo perfecto */
-    border-radius: 50%; /* Redondea completamente el botón */
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%; 
     text-decoration: none; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Sombra más suave y moderna */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones fluidas */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 .float-btn:hover {
-    transform: translateY(-5px); /* Efecto de elevación al hacer hover */
+    transform: translateY(-5px); 
     box-shadow: 0 6px 14px rgba(0,0,0,0.4);
 }
 .float-wa { background-color: #0b665b; }
 .float-mail { background-color: var(--secondary-green); }
 .float-icon {
-    width: 32px; /* Tamaño del icono adaptado al botón de 60px */
+    width: 32px; 
     height: 32px;
-    object-fit: contain; /* Evita que la imagen se deforme */
+    object-fit: contain; 
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
     .nav-links { flex-direction: column; align-items: center; gap: 1rem; }
     nav { flex-direction: column; gap: 1rem; }
+    /* HU-04: Ocultamos flechas en móvil para usar gestos/swipes */
+    .gallery-btn { display: none; } 
 }
