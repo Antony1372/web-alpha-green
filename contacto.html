@@ -23,7 +23,7 @@
         <h1 style="text-align: center;">Solicitud de Consultoría</h1>
         <p style="text-align: center; margin-bottom: 2rem;">Complete el formulario y nuestro equipo de ventas lo contactará a la brevedad.</p>
         
-        <form action="javascript:alert('Envío Exitoso');">
+        <form id="contactForm" novalidate>
             <div class="form-group">
                 <label for="nombre">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -54,8 +54,62 @@
         </form>
     </main>
 
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <h2>Envío Exitoso</h2>
+            <button id="closeModal" class="btn">Cerrar</button>
+        </div>
+    </div>
+
+    <div class="floating-container">
+        <a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa">WhatsApp</a>
+        <a href="mailto:contacto@alfagreen.cl" class="float-btn float-mail">Email</a>
+    </div>
+
     <footer>
         <p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
+        <div class="footer-logos">
+            <a href="https://energia.gob.cl/" target="_blank">Ministerio de Energía</a>
+            <a href="https://www.sec.cl/" target="_blank">Superintendencia de Electricidad y Combustibles (SEC)</a>
+        </div>
     </footer>
+
+    <script>
+        const form = document.getElementById('contactForm');
+        const modal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            const inputs = form.querySelectorAll('input[required], select[required]');
+
+            // Limpiar errores previos
+            form.querySelectorAll('.error-msg').forEach(el => el.remove());
+            inputs.forEach(input => input.classList.remove('error-border'));
+
+            inputs.forEach(input => {
+                // Verificación de campos vacíos o correo inválido
+                if (!input.value.trim() || (input.type === 'email' && !input.value.includes('@'))) {
+                    isValid = false;
+                    input.classList.add('error-border');
+                    
+                    const errorSpan = document.createElement('span');
+                    errorSpan.className = 'error-msg';
+                    errorSpan.innerText = 'Este campo es obligatorio';
+                    input.parentNode.appendChild(errorSpan);
+                }
+            });
+
+            if (isValid) {
+                modal.style.display = 'flex';
+            }
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            form.reset();
+        });
+    </script>
 </body>
 </html>
