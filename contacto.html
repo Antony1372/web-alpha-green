@@ -69,8 +69,12 @@
     <footer>
         <p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
         <div class="footer-logos">
-            <a href="https://energia.gob.cl/" target="_blank">Ministerio de Energía</a>
-            <a href="https://www.sec.cl/" target="_blank">Superintendencia de Electricidad y Combustibles (SEC)</a>
+            <a href="https://energia.gob.cl/" target="_blank">
+                <img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía">
+            </a>
+            <a href="https://www.sec.cl/" target="_blank">
+                <img src="img/logo-sec.png" alt="Logotipo SEC">
+            </a>
         </div>
     </footer>
 
@@ -89,14 +93,28 @@
             inputs.forEach(input => input.classList.remove('error-border'));
 
             inputs.forEach(input => {
-                // Verificación de campos vacíos o correo inválido
-                if (!input.value.trim() || (input.type === 'email' && !input.value.includes('@'))) {
+                let hasError = false;
+                let errorText = '';
+
+                // Validaciones por requerimiento RF-01 y RF-02
+                if (!input.value.trim()) {
+                    hasError = true;
+                    errorText = 'Este campo es obligatorio';
+                } else if (input.type === 'email') {
+                    // RF-02 Regex: Valida @ y un formato de dominio válido
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(input.value)) {
+                        hasError = true;
+                        errorText = 'Debe incluir un "@" y un dominio válido (ej. usuario@dominio.cl)';
+                    }
+                }
+
+                if (hasError) {
                     isValid = false;
                     input.classList.add('error-border');
-                    
                     const errorSpan = document.createElement('span');
                     errorSpan.className = 'error-msg';
-                    errorSpan.innerText = 'Este campo es obligatorio';
+                    errorSpan.innerText = errorText;
                     input.parentNode.appendChild(errorSpan);
                 }
             });

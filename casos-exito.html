@@ -24,17 +24,34 @@
         <p>Nuestras obras y resultados comprobados.</p>
         
         <div class="grid-container">
-            <div class="card">
-                <div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #555;">
-                    [Galería de Imágenes JPG/WebP - Max 500kb]
+            <div class="card" onclick="openCasoModal('Planta Solar Industrial B2B')" style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
+                <div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #555; font-weight: bold;">
+                    Ver Proyecto
                 </div>
                 <h3>Planta Solar Industrial B2B</h3>
-                <p><strong>Descripción Técnica:</strong> Instalación de 500kWp en techo industrial, con optimización estructural y cableado de alta eficiencia.</p>
-                <p><strong>Métricas de Resultados:</strong> Ahorro del 40% en facturación anual energética.</p>
-                <button class="btn" style="margin-top: 1rem;">Descargar PDF (Max 5MB)</button>
+                <p>Instalación de 500kWp en techo industrial.</p>
+                <p style="margin-top: 1rem; color: var(--secondary-green); font-weight: bold;">Haz clic para ver galería y descargar especificaciones</p>
             </div>
-            </div>
+        </div>
     </main>
+
+    <div id="casoModal" class="caso-modal">
+        <div class="caso-modal-content">
+            <button class="close-caso-modal" onclick="closeCasoModal()">Cerrar</button>
+            <h2 id="modalTitle">Título del Proyecto</h2>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">[Imagen 1 Optimizado - JPG Max 500kb]</div>
+                <div class="gallery-item">[Imagen 2 Optimizado - WebP Max 500kb]</div>
+                <div class="gallery-item">[Imagen 3 Optimizado - WebP Max 500kb]</div>
+            </div>
+
+            <p style="margin-bottom: 10px;"><strong>Descripción Técnica:</strong> Instalación de 500kWp en techo industrial, con optimización estructural y cableado de alta eficiencia.</p>
+            <p style="margin-bottom: 20px;"><strong>Métricas de Resultados:</strong> Ahorro del 40% en facturación anual energética.</p>
+            
+            <a href="docs/especificaciones.pdf" download class="btn">Descargar Especificaciones PDF (Max 5MB)</a>
+        </div>
+    </div>
 
     <div class="floating-container">
         <a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa">WhatsApp</a>
@@ -44,9 +61,23 @@
     <footer>
         <p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
         <div class="footer-logos">
-            <a href="https://energia.gob.cl/" target="_blank">Ministerio de Energía</a>
-            <a href="https://www.sec.cl/" target="_blank">Superintendencia de Electricidad y Combustibles (SEC)</a>
+            <a href="https://energia.gob.cl/" target="_blank">
+                <img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía">
+            </a>
+            <a href="https://www.sec.cl/" target="_blank">
+                <img src="img/logo-sec.png" alt="Logotipo SEC">
+            </a>
         </div>
     </footer>
+
+    <script>
+        function openCasoModal(title) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('casoModal').style.display = 'flex';
+        }
+        function closeCasoModal() {
+            document.getElementById('casoModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
