@@ -1,151 +1,155 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto | Alfa Green</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ALFAGREEN26'); // Registra pageview
-    </script>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Alfa Green</a>
-            <ul class="nav-links">
-                <li><a href="servicios-tecnicos.html">Servicios Técnicos</a></li>
-                <li><a href="energia-sustentable.html">Energía Sustentable</a></li>
-                <li><a href="casos-exito.html">Casos de Éxito</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Contacto | Alfa Green</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-ALFAGREEN26"); // Registra pageview
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="index.html" class="logo" aria-label="Volver al inicio">
+					<img src="img/logo.png" alt="Logo Alfa Green" class="logo-img" />
+				</a>
+				<ul class="nav-links">
+					<li><a href="servicios-tecnicos.html">Servicios Técnicos</a></li>
+					<li><a href="energia-sustentable.html">Energía Sustentable</a></li>
+					<li><a href="casos-exito.html">Casos de Éxito</a></li>
+					<li><a href="contacto.html">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
-        <h1 style="text-align: center;">Solicitud de Consultoría</h1>
-        <p style="text-align: center; margin-bottom: 2rem;">Complete el formulario y nuestro equipo de ventas lo contactará a la brevedad.</p>
-        
-        <form id="contactForm" novalidate>
-            <div class="form-group">
-                <label for="nombre">Nombre completo *</label>
-                <input type="text" id="nombre" name="nombre" required maxlength="100" pattern="[A-Za-zÀ-ÿ\s]+" title="Solo se permiten letras y espacios en el nombre">
-            </div>
-            
-            <div class="form-group">
-                <label for="empresa">Nombre de la empresa *</label>
-                <input type="text" id="empresa" name="empresa" required maxlength="150">
-            </div>
-            
-            <div class="form-group">
-                <label for="correo">Correo electrónico *</label>
-                <input type="email" id="correo" name="correo" placeholder="usuario@dominio.cl" required maxlength="100">
-            </div>
-            
-            <div class="form-group">
-                <label for="servicio">Tipo de servicio *</label>
-                <select id="servicio" name="servicio" required>
-                    <option value="" disabled selected>Seleccione una opción</option>
-                    <option value="Estrategias">Estrategias</option>
-                    <option value="Investigacion">Investigación</option>
-                    <option value="Integracion">Integración</option>
-                    <option value="Consulta General">Consulta General</option>
-                </select>
-            </div>
-            
-            <button type="submit" class="btn" style="margin-top: 1rem;">Enviar Solicitud</button>
-        </form>
-    </main>
+		<main>
+			<h1 style="text-align: center">Solicitud de Consultoría</h1>
+			<p style="text-align: center; margin-bottom: 2rem">Complete el formulario y nuestro equipo de ventas lo contactará a la brevedad.</p>
 
-    <div id="successModal" class="modal">
-        <div class="modal-content">
-            <h2>Envío Exitoso</h2>
-            <button id="closeModal" class="btn">Cerrar</button>
-        </div>
-    </div>
+			<form id="contactForm" novalidate>
+				<div class="form-group">
+					<label for="nombre">Nombre completo *</label>
+					<input type="text" id="nombre" name="nombre" required maxlength="100" pattern="[A-Za-zÀ-ÿ\s]+" title="Solo se permiten letras y espacios en el nombre" />
+				</div>
 
-    <div class="floating-container">
-        <a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa" aria-label="Contactar por WhatsApp">
-            <img src="img/whatsapp.png" alt="Icono de WhatsApp" class="float-icon">
-        </a>
-        <a href="mailto:contacto@alfagreen.cl" class="float-btn float-mail" aria-label="Enviar correo electrónico">
-            <img src="img/email.svg" alt="Icono de Correo Electrónico" class="float-icon">
-        </a>
-    </div>
+				<div class="form-group">
+					<label for="empresa">Nombre de la empresa *</label>
+					<input type="text" id="empresa" name="empresa" required maxlength="150" />
+				</div>
 
-    <footer>
-        <p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
-        <div class="footer-logos">
-            <a href="https://energia.gob.cl/" target="_blank">
-                <img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía">
-            </a>
-            <a href="https://www.sec.cl/" target="_blank">
-                <img src="img/logo-sec.png" alt="Logotipo SEC">
-            </a>
-        </div>
-    </footer>
+				<div class="form-group">
+					<label for="correo">Correo electrónico *</label>
+					<input type="email" id="correo" name="correo" placeholder="usuario@dominio.cl" required maxlength="100" />
+				</div>
 
-    <script>
-        const form = document.getElementById('contactForm');
-        const modal = document.getElementById('successModal');
-        const closeModal = document.getElementById('closeModal');
+				<div class="form-group">
+					<label for="servicio">Tipo de servicio *</label>
+					<select id="servicio" name="servicio" required>
+						<option value="" disabled selected>Seleccione una opción</option>
+						<option value="Estrategias">Estrategias</option>
+						<option value="Investigacion">Investigación</option>
+						<option value="Integracion">Integración</option>
+						<option value="Consulta General">Consulta General</option>
+					</select>
+				</div>
 
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            let isValid = true;
-            const inputs = form.querySelectorAll('input[required], select[required]');
+				<button type="submit" class="btn" style="margin-top: 1rem">Enviar Solicitud</button>
+			</form>
+		</main>
 
-            // Limpiar errores previos
-            form.querySelectorAll('.error-msg').forEach(el => el.remove());
-            inputs.forEach(input => input.classList.remove('error-border'));
+		<div id="successModal" class="modal">
+			<div class="modal-content">
+				<h2>Envío Exitoso</h2>
+				<button id="closeModal" class="btn">Cerrar</button>
+			</div>
+		</div>
 
-            inputs.forEach(input => {
-                let hasError = false;
-                let errorText = '';
+		<div class="floating-container">
+			<a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa" aria-label="Contactar por WhatsApp">
+				<img src="img/whatsapp.png" alt="Icono de WhatsApp" class="float-icon" />
+			</a>
+			<a href="mailto:contacto@alfagreen.cl" class="float-btn float-mail" aria-label="Enviar correo electrónico">
+				<img src="img/email.svg" alt="Icono de Correo Electrónico" class="float-icon" />
+			</a>
+		</div>
 
-                // Validaciones por requerimiento RF-01, RF-02 y RNF-11
-                if (!input.value.trim()) {
-                    hasError = true;
-                    errorText = 'Este campo es obligatorio';
-                } else if (input.type === 'email') {
-                    // RF-02 Regex: Valida @ y un formato de dominio válido
-                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                    if (!emailRegex.test(input.value)) {
-                        hasError = true;
-                        errorText = 'Debe incluir un "@" y un dominio válido (ej. usuario@dominio.cl)';
-                    }
-                } else if (input.validity.patternMismatch) {
-                    hasError = true;
-                    errorText = input.title || 'Formato de datos no permitido';
-                }
+		<footer>
+			<p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
+			<div class="footer-logos">
+				<a href="https://energia.gob.cl/" target="_blank">
+					<img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía" />
+				</a>
+				<a href="https://www.sec.cl/" target="_blank">
+					<img src="img/logo-sec.png" alt="Logotipo SEC" />
+				</a>
+			</div>
+		</footer>
 
-                if (hasError) {
-                    isValid = false;
-                    input.classList.add('error-border');
-                    const errorSpan = document.createElement('span');
-                    errorSpan.className = 'error-msg';
-                    errorSpan.innerText = errorText;
-                    input.parentNode.appendChild(errorSpan);
-                }
-            });
+		<script>
+			const form = document.getElementById("contactForm");
+			const modal = document.getElementById("successModal");
+			const closeModal = document.getElementById("closeModal");
 
-            if (isValid) {
-                modal.style.display = 'flex';
-                // Dispara el tag exigido form_submit para RNF-13
-                if (typeof gtag === 'function') {
-                    gtag('event', 'form_submit');
-                }
-            }
-        });
+			form.addEventListener("submit", function (e) {
+				e.preventDefault();
+				let isValid = true;
+				const inputs = form.querySelectorAll("input[required], select[required]");
 
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            form.reset();
-        });
-    </script>
-</body>
+				// Limpiar errores previos
+				form.querySelectorAll(".error-msg").forEach((el) => el.remove());
+				inputs.forEach((input) => input.classList.remove("error-border"));
+
+				inputs.forEach((input) => {
+					let hasError = false;
+					let errorText = "";
+
+					// Validaciones por requerimiento RF-01, RF-02 y RNF-11
+					if (!input.value.trim()) {
+						hasError = true;
+						errorText = "Este campo es obligatorio";
+					} else if (input.type === "email") {
+						// RF-02 Regex: Valida @ y un formato de dominio válido
+						const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+						if (!emailRegex.test(input.value)) {
+							hasError = true;
+							errorText = 'Debe incluir un "@" y un dominio válido (ej. usuario@dominio.cl)';
+						}
+					} else if (input.validity.patternMismatch) {
+						hasError = true;
+						errorText = input.title || "Formato de datos no permitido";
+					}
+
+					if (hasError) {
+						isValid = false;
+						input.classList.add("error-border");
+						const errorSpan = document.createElement("span");
+						errorSpan.className = "error-msg";
+						errorSpan.innerText = errorText;
+						input.parentNode.appendChild(errorSpan);
+					}
+				});
+
+				if (isValid) {
+					modal.style.display = "flex";
+					// Dispara el tag exigido form_submit para RNF-13
+					if (typeof gtag === "function") {
+						gtag("event", "form_submit");
+					}
+				}
+			});
+
+			closeModal.addEventListener("click", () => {
+				modal.style.display = "none";
+				form.reset();
+			});
+		</script>
+	</body>
 </html>

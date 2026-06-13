@@ -1,104 +1,106 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casos de Éxito | Alfa Green</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-ALFAGREEN26'); // Registra pageview
-    </script>
-</head>
-<body>
-    <header>
-        <nav>
-            <a href="index.html" class="logo">Alfa Green</a>
-            <ul class="nav-links">
-                <li><a href="servicios-tecnicos.html">Servicios Técnicos</a></li>
-                <li><a href="energia-sustentable.html">Energía Sustentable</a></li>
-                <li><a href="casos-exito.html">Casos de Éxito</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Casos de Éxito | Alfa Green</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-ALFAGREEN26"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+			gtag("config", "G-ALFAGREEN26"); // Registra pageview
+		</script>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<a href="index.html" class="logo" aria-label="Volver al inicio">
+					<img src="img/logo.png" alt="Logo Alfa Green" class="logo-img" />
+				</a>
+				<ul class="nav-links">
+					<li><a href="servicios-tecnicos.html">Servicios Técnicos</a></li>
+					<li><a href="energia-sustentable.html">Energía Sustentable</a></li>
+					<li><a href="casos-exito.html">Casos de Éxito</a></li>
+					<li><a href="contacto.html">Contacto</a></li>
+				</ul>
+			</nav>
+		</header>
 
-    <main>
-        <h1>Casos de Éxito</h1>
-        <p>Nuestras obras y resultados comprobados.</p>
-        
-        <div class="grid-container">
-            <div class="card" onclick="openCasoModal('Planta Solar Industrial B2B')" style="cursor: pointer; transition: transform 0.2s;" onmouseover="this.style.transform='scale(1.02)'" onmouseout="this.style.transform='scale(1)'">
-                <div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #333; font-weight: bold;">
-                    Ver Proyecto
-                </div>
-                <h3>Planta Solar Industrial B2B</h3>
-                <p>Instalación de 500kWp en techo industrial.</p>
-                <p style="margin-top: 1rem; color: var(--secondary-green); font-weight: bold;">Haz clic para ver galería y descargar especificaciones</p>
-            </div>
-        </div>
-    </main>
+		<main>
+			<h1>Casos de Éxito</h1>
+			<p>Nuestras obras y resultados comprobados.</p>
 
-    <div id="casoModal" class="caso-modal">
-        <div class="caso-modal-content">
-            <button class="close-caso-modal" aria-label="Cerrar modal" onclick="closeCasoModal()">X</button>
-            <h2 id="modalTitle" style="padding-right: 30px;">Título del Proyecto</h2>
-            
-            <div class="gallery-wrapper">
-                <button class="gallery-btn prev" aria-label="Anterior" onclick="scrollGallery(-1)">&lt;</button>
-                <div class="gallery-container" id="casoGallery">
-                    <div class="gallery-item">[Imagen 1 - Optimizada JPG Max 500kb]</div>
-                    <div class="gallery-item">[Imagen 2 - Optimizada WebP Max 500kb]</div>
-                    <div class="gallery-item">[Imagen 3 - Optimizada WebP Max 500kb]</div>
-                </div>
-                <button class="gallery-btn next" aria-label="Siguiente" onclick="scrollGallery(1)">&gt;</button>
-            </div>
+			<div class="grid-container">
+				<div class="card" onclick="openCasoModal('Planta Solar Industrial B2B')" style="cursor: pointer; transition: transform 0.2s" onmouseover="this.style.transform = 'scale(1.02)'" onmouseout="this.style.transform = 'scale(1)'">
+					<div style="background-color: #e0e0e0; height: 200px; border-radius: 4px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; color: #333; font-weight: bold">Ver Proyecto</div>
+					<h3>Planta Solar Industrial B2B</h3>
+					<p>Instalación de 500kWp en techo industrial.</p>
+					<p style="margin-top: 1rem; color: var(--secondary-green); font-weight: bold">Haz clic para ver galería y descargar especificaciones</p>
+				</div>
+			</div>
+		</main>
 
-            <p style="margin-bottom: 10px;"><strong>Descripción Técnica:</strong> Instalación de 500kWp en techo industrial, con optimización estructural y cableado de alta eficiencia.</p>
-            <p style="margin-bottom: 20px;"><strong>Métricas de Resultados:</strong> Ahorro del 40% en facturación anual energética.</p>
-            
-            <a href="docs/especificaciones.pdf" download class="btn">Descargar Especificaciones PDF (Max 5MB)</a>
-        </div>
-    </div>
+		<div id="casoModal" class="caso-modal">
+			<div class="caso-modal-content">
+				<button class="close-caso-modal" aria-label="Cerrar modal" onclick="closeCasoModal()">X</button>
+				<h2 id="modalTitle" style="padding-right: 30px">Título del Proyecto</h2>
 
-    <div class="floating-container">
-        <a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa" aria-label="Contactar por WhatsApp">
-            <img src="img/whatsapp.png" alt="Icono de WhatsApp" class="float-icon">
-        </a>
-        <a href="mailto:contacto@alfagreen.cl" class="float-btn float-mail" aria-label="Enviar correo electrónico">
-            <img src="img/email.svg" alt="Icono de Correo Electrónico" class="float-icon">
-        </a>
-    </div>
+				<div class="gallery-wrapper">
+					<button class="gallery-btn prev" aria-label="Anterior" onclick="scrollGallery(-1)">&lt;</button>
+					<div class="gallery-container" id="casoGallery">
+						<div class="gallery-item">[Imagen 1 - Optimizada JPG Max 500kb]</div>
+						<div class="gallery-item">[Imagen 2 - Optimizada WebP Max 500kb]</div>
+						<div class="gallery-item">[Imagen 3 - Optimizada WebP Max 500kb]</div>
+					</div>
+					<button class="gallery-btn next" aria-label="Siguiente" onclick="scrollGallery(1)">&gt;</button>
+				</div>
 
-    <footer>
-        <p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
-        <div class="footer-logos">
-            <a href="https://energia.gob.cl/" target="_blank">
-                <img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía">
-            </a>
-            <a href="https://www.sec.cl/" target="_blank">
-                <img src="img/logo-sec.png" alt="Logotipo SEC">
-            </a>
-        </div>
-    </footer>
+				<p style="margin-bottom: 10px"><strong>Descripción Técnica:</strong> Instalación de 500kWp en techo industrial, con optimización estructural y cableado de alta eficiencia.</p>
+				<p style="margin-bottom: 20px"><strong>Métricas de Resultados:</strong> Ahorro del 40% en facturación anual energética.</p>
 
-    <script>
-        function openCasoModal(title) {
-            document.getElementById('modalTitle').innerText = title;
-            document.getElementById('casoModal').style.display = 'flex';
-        }
-        function closeCasoModal() {
-            document.getElementById('casoModal').style.display = 'none';
-        }
-        // Navegación de flechas HU-04
-        function scrollGallery(direction) {
-            const gallery = document.getElementById('casoGallery');
-            const scrollAmount = 310 * direction; 
-            gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
-    </script>
-</body>
+				<a href="docs/especificaciones.pdf" download class="btn">Descargar Especificaciones PDF (Max 5MB)</a>
+			</div>
+		</div>
+
+		<div class="floating-container">
+			<a href="https://wa.me/?text=Hola%20Alfa%20Green,%20solicito%20informaci%C3%B3n%20sobre%20consultor%C3%ADa" target="_blank" class="float-btn float-wa" aria-label="Contactar por WhatsApp">
+				<img src="img/whatsapp.png" alt="Icono de WhatsApp" class="float-icon" />
+			</a>
+			<a href="mailto:contacto@alfagreen.cl" class="float-btn float-mail" aria-label="Enviar correo electrónico">
+				<img src="img/email.svg" alt="Icono de Correo Electrónico" class="float-icon" />
+			</a>
+		</div>
+
+		<footer>
+			<p>&copy; 2026 Alfa Green. Todos los derechos reservados.</p>
+			<div class="footer-logos">
+				<a href="https://energia.gob.cl/" target="_blank">
+					<img src="img/logo-minenergia.png" alt="Logotipo Ministerio de Energía" />
+				</a>
+				<a href="https://www.sec.cl/" target="_blank">
+					<img src="img/logo-sec.png" alt="Logotipo SEC" />
+				</a>
+			</div>
+		</footer>
+
+		<script>
+			function openCasoModal(title) {
+				document.getElementById("modalTitle").innerText = title;
+				document.getElementById("casoModal").style.display = "flex";
+			}
+			function closeCasoModal() {
+				document.getElementById("casoModal").style.display = "none";
+			}
+			// Navegación de flechas HU-04
+			function scrollGallery(direction) {
+				const gallery = document.getElementById("casoGallery");
+				const scrollAmount = 310 * direction;
+				gallery.scrollBy({left: scrollAmount, behavior: "smooth"});
+			}
+		</script>
+	</body>
 </html>

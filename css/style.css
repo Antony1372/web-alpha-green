@@ -12,9 +12,23 @@
 body { background-color: var(--light-bg); color: var(--text-dark); display: flex; flex-direction: column; min-height: 100vh; }
 
 /* Navegación - Evita callejones sin salida */
-header { background-color: var(--primary-green); padding: 1rem 2rem; }
+header { 
+    background-color: var(--primary-green); 
+    padding: 0 2rem; /* Cambiado de 1rem a 0 para quitar el espacio extra superior e inferior */
+}
 nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-.logo { color: var(--white); font-size: 1.5rem; font-weight: bold; text-decoration: none; }
+.logo { 
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+}
+.logo-img {
+    height: 150px; 
+    width: auto;
+    object-fit: contain;
+    margin-top: -10px; 
+    margin-bottom: -10px; 
+}
 .nav-links { list-style: none; display: flex; gap: 1.5rem; }
 .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; transition: color 0.3s; }
 .nav-links a:hover { color: #a3d9b8; }
